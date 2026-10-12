@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>BTS Store - Formulario Agrupado (ronda2)</title>
+</head>
+<body>
+    <main>
+        <form>
+            <fieldset>
+                <legend>Información Principal del Producto</legend>
+                
+                <label for="p-nombre">Nombre:</label>
+                <input type="text" id="p-nombre" name="nombre"><br><br>
+
+                <label for="p-cat">Categoria:</label>
+                <select id="p-cat" name="categoria">
+                    <option value="lightsticks">Lightsticks</option>
+                    <option value="albumes">Álbumes</option>
+                    <option value="ropa">Ropa / BT21</option>
+                </select>
+            </fieldset>
+
+            <fieldset>
+                <legend>Inventario y Precios</legend>
+                
+                <label for="p-precio">Precio Unitario:</label>
+                <input type="number" id="p-precio" name="precio"><br><br>
+
+                <label for="p-stock">Unidades en Almacen:</label>
+                <input type="number" id="p-stock" name="stock">
+            </fieldset>
+
+            <br>
+            <button type="submit">Registrar en Sistema</button>
+        </form>
+    </main>
+</body>
+</html>

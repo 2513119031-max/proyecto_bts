@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "nombre": "Army Bomb Ver. 4 (Lightstick)",
+    "categoria": "Lightsticks",
+    "precio": 1200,
+    "stock": 15
+  },
+  {
+    "id": 2,
+    "nombre": "Álbum Proof (Standard Edition)",
+    "categoria": "Álbumes",
+    "precio": 1500,
+    "stock": 20
+  },
+  {
+    "id": 3,
+    "nombre": "Sudadera BT21 RJ",
+    "categoria": "Ropa",
+    "precio": 850,
+    "stock": 10
+  },
+  {
+    "id": 4,
+    "nombre": "Set de Photocards Map of the Soul",
+    "categoria": "Coleccionables",
+    "precio": 350,
+    "stock": 30
+  },
+  {
+    "id": 5,
+    "nombre": "Peluche BT21 Chimmy",
+    "categoria": "Peluches",
+    "precio": 450,
+    "stock": 12
+  }
+]
