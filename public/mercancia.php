@@ -1,42 +1,72 @@
-<?php
-// Leer datos del archivo JSON
-$json_data = file_get_contents("../datos/datos.json");
-$productos = json_decode($json_data, true);
-?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Tienda BTS - Mercancía</title>
+    <title>Tienda BTS - Catálogo</title>
+    <link rel="stylesheet" href="assets/css/estilos.css">
 </head>
 <body>
     <header>
-        <h1>Tienda BTS</h1>
+        <h1>Productos</h1>
         <nav>
-            <a href="index.php">Inicio</a> |
-            <a href="productos.php">Catálogo</a> |
-            <a href="alta-producto.php">Agregar Producto</a>
+            <ul>
+                <li><a href="index.php">Inicio</a></li>
+                <li><a href="mercancia.php">Catalogo</a></li>
+                <li><a href="contacto.php">Contacto</a></li>
+            </ul>
         </nav>
     </header>
-
     <main>
-        <h2>Catálogo de Productos BTS</h2>
-        <a href="alta-producto.php">+ Agregar producto</a>
-        <br><br>
+        <h2>Catalogo</h2>
+        <a href="alta-mercancia.php" class="boton-agregar">Agregar producto +</a>
+        <section class="tarjetas-productos">
+            <article>
+                <img src="https://placehold.co/200x150" alt="Army Bomb Ver 4">
+                <div class="tarjetas-productos-info">
+                    <h3>Army Bomb Ver. 4</h3>
+                    <p class="etiqueta-categoria">Categoria: Lightsticks</p>
+                    <p class="texto-secundario">Lightstick oficial con conectividad Bluetooth para conciertos.</p>
+                    <p class="tarjeta-producto-precio">Precio: $1200</p>
+                    <a class="enlace-detalle" href="mercancia-detalle.php?id=1">Ver detalle</a>
+                </div>
+            </article>
 
-        <?php foreach ($productos as $producto): ?>
-            <section>
-                <h3><?php echo $producto['nombre']; ?></h3>
-                <p>Categoría: <?php echo $producto['categoria']; ?></p>
-                <p>Precio: $<?php echo $producto['precio']; ?></p>
-                <a href="producto-detalle.php?id=<?php echo $producto['id']; ?>">Ver detalle</a>
-            </section>
-            <hr>
-        <?php endforeach; ?>
+            <article>
+                <img src="https://placehold.co/200x150" alt="Álbum Proof">
+                <div class="tarjetas-productos-info">
+                    <h3>Álbum Proof (Standard)</h3>
+                    <p class="etiqueta-categoria">Categoria: Álbumes</p>
+                    <p class="texto-secundario">Edición de colección antológica con photobook y photocards.</p>
+                    <p class="tarjeta-producto-precio">Precio: $1500</p>
+                    <a class="enlace-detalle" href="mercancia-detalle.php?id=2">Ver detalle</a>
+                </div>
+            </article>
+
+            <article>
+                <img src="https://placehold.co/200x150" alt="Sudadera BT21 RJ">
+                <div class="tarjetas-productos-info">
+                    <h3>Sudadera BT21 RJ</h3>
+                    <p class="etiqueta-categoria">Categoria: Ropa</p>
+                    <p class="texto-secundario">Sudadera oficial de felpa personaje RJ por Jin.</p>
+                    <p class="tarjeta-producto-precio">Precio: $850</p>
+                    <a class="enlace-detalle" href="mercancia-detalle.php?id=3">Ver detalle</a>
+                </div>
+            </article>
+
+            <article>
+                <img src="https://placehold.co/200x150" alt="Photocards Set">
+                <div class="tarjetas-productos-info">
+                    <h3>Set Photocards MOTS</h3>
+                    <p class="etiqueta-categoria">Categoria: Coleccionables</p>
+                    <p class="texto-secundario">Colección especial de tarjetas exclusivas de la era MOTS.</p>
+                    <p class="tarjeta-producto-precio">Precio: $350</p>
+                    <a class="enlace-detalle" href="mercancia-detalle.php?id=4">Ver detalle</a>
+                </div>
+            </article>
+        </section>
     </main>
-
     <footer>
-        <p>&copy; 2026 Tienda BTS - BTS pave the way</p>
+        <p>&copy; 2026 Tienda BTS pave the way</p>
     </footer>
 </body>
 </html>

@@ -1,0 +1,206 @@
+/*
+   1. VARIABLES DE MARCA Y CONFIGURACIÓN (:root)
+   Ronda 1 - Fundación
+   */
+:root {
+    --color-primario: #9419E6;
+    --color-acento: #A264CC;
+    --color-texto: #212529;
+    --color-fondo: #f5f7fa;
+    --fuente-base: "monaco", monospace;
+    --espaciado-base: 8px;
+    --columnas-catalogo: 2;
+}
+
+/* 
+   ANÁLISIS RONDA 1[cite: 17]:
+   ¿Qué pasaría si en vez de variables usaras el valor de color repetido en cada regla?[cite: 17]
+   Respuesta: El código se volvería difícil de mantener. Cambiar el color principal 
+   requeriría buscar y reemplazar manualmente decenas de líneas. Usar variables facilita 
+   mantenimiento, consistencia visual y futuros temas (como modo oscuro).
+*/
+
+/* 
+   2. RESET MÍNIMO Y MODELO DE CAJA
+   Ronda 3 - Modelo de caja[cite: 17] */
+*, *::before, *::after {
+    box-sizing: border-box; /* Aplica border-box globalmente[cite: 17] */
+}
+
+/* 
+   ANÁLISIS RONDA 3[cite: 17]:
+   Diferencia entre content-box y border-box[cite: 17]:
+   - content-box: El ancho total es (width + padding + border), lo que hace que los 
+     elementos crezcan y "rompan" el maquetado cuando agregas padding[cite: 17].
+   - border-box: El ancho definido incluye el padding y el borde, garantizando que 
+     las tarjetas mantengan su tamaño exacto dentro de la cuadrícula[cite: 17].
+*/
+
+/* ==========================================================================
+   3. TIPOGRAFÍA Y ESTILOS GENERALES
+   Ronda 4 - Tipografía y jerarquía visual[cite: 17]
+   ========================================================================== */
+body {
+    margin: 0;
+    font-family: var(--fuente-base);
+    color: var(--color-texto);
+    background-color: var(--color-fondo);
+}
+
+main {
+    padding: 0 24px;
+}
+
+h1 {
+    font-size: 1.75rem; /* Escala tipográfica en rem[cite: 17] */
+}
+
+h2 {
+    font-size: 1.1rem;
+    margin: 0 0 4px 0;
+}
+
+p, .texto-secundario {
+    font-size: 1rem;
+    line-height: 1.5; /* Line-height ajustado para legibilidad (1.4-1.6)[cite: 17] */
+}
+
+/* 
+   ANÁLISIS RONDA 4[cite: 17]:
+   ¿Por qué 'rem' respeta la configuración de accesibilidad del navegador?[cite: 18]
+   Respuesta: La unidad 'rem' es relativa al tamaño de fuente raíz del navegador. Si un 
+   usuario cambia la fuente predeterminada de su navegador por problemas de vista, 
+   los elementos con 'rem' se escalan proporcionalmente automáticamente[cite: 18].
+*/
+
+/* ==========================================================================
+   4. NAVEGACIÓN Y ENCABEZADO
+   Ronda 2 - Selectores aplicados a la navegación[cite: 17]
+   ========================================================================== */
+header {
+    background-color: var(--color-primario);
+    color: white;
+    padding: calc(var(--espaciado-base) * 2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Selectores descendientes[cite: 17] */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: calc(var(--espaciado-base) * 2);
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Pseudo-clase :hover[cite: 17] */
+nav a:hover {
+    color: var(--color-acento);
+    text-decoration: underline;
+}
+
+/* 
+   ANÁLISIS RONDA 2[cite: 17]:
+   Especificidad (Clase vs ID)[cite: 17]:
+   Los selectores de ID (1,0,0) tienen mayor especificidad que las clases (0,1,0). Usar 
+   clases evita el "bloqueo de especificidad", permitiendo reutilizar estilos y 
+   sobrescribirlos fácilmente sin recurrir a !important[cite: 17].
+*/
+
+/*
+   5. COMPONENTES Y TARJETAS DE PRODUCTO */
+.tarjetas-productos {
+    display: grid;
+    grid-template-columns: repeat(var(--columnas-catalogo), 1fr);
+    gap: 16px;
+}
+
+article {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: calc(var(--espaciado-base) * 2);
+    background-color: white;
+    border: 1px solid #d9dee3;
+    border-radius: 4px;
+    margin-bottom: calc(var(--espaciado-base) * 2);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+article img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    flex-shrink: 0;
+    margin-bottom: 0;
+}
+
+.tarjetas-productos-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+}
+
+.etiqueta-categoria {
+    display: inline-block;
+    background-color: var(--color-fondo);
+    color: var(--color-acento);
+    font-size: 0.75rem;
+    padding: 2px 8px;
+    border-radius: 12px;
+    margin-bottom: var(--espaciado-base);
+}
+
+.tarjeta-producto-precio {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: var(--color-primario);
+}
+
+.enlace-detalle {
+    display: inline-block;
+    margin-top: auto;
+    color: var(--color-acento);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.enlace-detalle:hover {
+    text-decoration: underline;
+}
+
+/* 
+   6. UTILIDADES Y BOTONES
+    */
+.boton-agregar {
+    display: inline-block;
+    margin-top: calc(var(--espaciado-base) * 2);
+    margin-bottom: calc(var(--espaciado-base) * 2);
+    padding: var(--espaciado-base) calc(var(--espaciado-base) * 2);
+    background-color: var(--color-acento);
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.boton-agregar:hover {
+    background-color: var(--color-primario);
+}
+
+/* 
+   SEMILLA DEL CATÁLOGO DE COMPONENTES CONSTRUIDOS HOY[cite: 18]:
+   1. Encabezado principal y navegación flexbox (`header`, `nav ul`).
+   2. Grilla de catálogo responsiva con variables CSS (`.tarjetas-productos`).
+   3. Tarjeta de producto horizontal (`article`, `.tarjetas-productos-info`).
+   4. Etiqueta destacada de categoría (`.etiqueta-categoria`).
+   5. Botón de acción con estados hover (`.boton-agregar`) */

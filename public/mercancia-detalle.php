@@ -1,50 +1,36 @@
-<?php
-$id = $_GET['id'] ?? null;
-$json_data = file_get_contents("../datos/datos.json");
-$productos = json_decode($json_data, true);
-
-$productoEncontrado = null;
-if ($id) {
-    foreach ($productos as $p) {
-        if ($p['id'] == $id) {
-            $productoEncontrado = $p;
-            break;
-        }
-    }
-}
-?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Tienda BTS - Detalle del Producto</title>
+    <title>Tienda BTS - Detalle</title>
+    <link rel="stylesheet" href="assets/css/estilos.css">
 </head>
 <body>
     <header>
-        <h1>Tienda BTS</h1>
+        <h1>Detalle mercancía</h1>
         <nav>
-            <a href="index.php">Inicio</a> |
-            <a href="productos.php">Catálogo</a> |
-            <a href="alta-producto.php">Agregar Producto</a>
+            <ul>
+                <li><a href="index.php">Inicio</a></li>
+                <li><a href="mercancia.php">Catalogo</a></li>
+                <li><a href="contacto.php">Contacto</a></li>
+            </ul>
         </nav>
     </header>
-
     <main>
-        <?php if ($productoEncontrado): ?>
-            <h2><?php echo $productoEncontrado['nombre']; ?></h2>
-            <p><strong>Categoría:</strong> <?php echo $productoEncontrado['categoria']; ?></p>
-            <p><strong>Precio:</strong> $<?php echo $productoEncontrado['precio']; ?></p>
-            <p><strong>Stock disponible:</strong> <?php echo $productoEncontrado['stock']; ?> unidades</p>
-            <p><strong>Imagen:</strong> <?php echo $productoEncontrado['imagen']; ?></p>
-        <?php else: ?>
-            <h2>Producto no encontrado</h2>
-        <?php endif; ?>
         <br>
-        <a href="productos.php">Volver al catálogo</a>
+        <article>
+            <img src="https://placehold.co/200x150" alt="Army Bomb Ver. 4">
+            <div class="tarjetas-productos-info">
+                <h3>Army Bomb Ver. 4 (Lightstick)</h3>
+                <p class="etiqueta-categoria">Categoria: Lightsticks</p>
+                <p class="texto-secundario">Lightstick oficial de BTS con sincronización para conciertos y conexión a la app.</p>
+                <p class="tarjeta-producto-precio">Precio: $1200</p>
+            </div>
+        </article>
+        <a href="mercancia.php" class="enlace-detalle">← Volver al catálogo</a>
     </main>
-
     <footer>
-        <p>&copy; 2026 Tienda BTS - BTS pave the way</p>
+        <p>&copy; 2026 Tienda BTS pave the way</p>
     </footer>
 </body>
 </html>
