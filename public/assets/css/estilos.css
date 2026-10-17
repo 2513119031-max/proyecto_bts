@@ -1,7 +1,4 @@
-/*
-   1. VARIABLES DE MARCA Y CONFIGURACIÓN (:root)
-   Ronda 1 - Fundación
-   */
+
 :root {
     --color-primario: #9419E6;
     --color-acento: #A264CC;
@@ -13,33 +10,26 @@
 }
 
 /* 
-   ANÁLISIS RONDA 1[cite: 17]:
-   ¿Qué pasaría si en vez de variables usaras el valor de color repetido en cada regla?[cite: 17]
-   Respuesta: El código se volvería difícil de mantener. Cambiar el color principal 
-   requeriría buscar y reemplazar manualmente decenas de líneas. Usar variables facilita 
-   mantenimiento, consistencia visual y futuros temas (como modo oscuro).
+   analisis de ronda 1 :
+   ¿qué pasaría si en vez de variables usaras el valor de color repetido en cada regla?
+   el código se volveria difícil de mantener, cambiar el color principal 
+   requeriria buscar y reemplazar varias lineas
 */
 
-/* 
-   2. RESET MÍNIMO Y MODELO DE CAJA
-   Ronda 3 - Modelo de caja[cite: 17] */
+/*   Ronda3:  Modelo de caja*/
 *, *::before, *::after {
-    box-sizing: border-box; /* Aplica border-box globalmente[cite: 17] */
+    box-sizing: border-box;
 }
 
-/* 
-   ANÁLISIS RONDA 3[cite: 17]:
-   Diferencia entre content-box y border-box[cite: 17]:
+/* analisis de ronda3:
+   Diferencia entre content-box y border-box:
    - content-box: El ancho total es (width + padding + border), lo que hace que los 
-     elementos crezcan y "rompan" el maquetado cuando agregas padding[cite: 17].
+     elementos crezcan y rompan el maquetado cuando agregas padding.
    - border-box: El ancho definido incluye el padding y el borde, garantizando que 
-     las tarjetas mantengan su tamaño exacto dentro de la cuadrícula[cite: 17].
+     las tarjetas mantengan su tamaño exacto dentro de la cuadrícula.
 */
 
-/* ==========================================================================
-   3. TIPOGRAFÍA Y ESTILOS GENERALES
-   Ronda 4 - Tipografía y jerarquía visual[cite: 17]
-   ========================================================================== */
+/* Ronda 4 - Tipografía y jerarquía visual*/
 body {
     margin: 0;
     font-family: var(--fuente-base);
@@ -52,7 +42,7 @@ main {
 }
 
 h1 {
-    font-size: 1.75rem; /* Escala tipográfica en rem[cite: 17] */
+    font-size: 1.75rem; 
 }
 
 h2 {
@@ -62,21 +52,16 @@ h2 {
 
 p, .texto-secundario {
     font-size: 1rem;
-    line-height: 1.5; /* Line-height ajustado para legibilidad (1.4-1.6)[cite: 17] */
+    line-height: 1.5; 
 }
-
-/* 
-   ANÁLISIS RONDA 4[cite: 17]:
-   ¿Por qué 'rem' respeta la configuración de accesibilidad del navegador?[cite: 18]
-   Respuesta: La unidad 'rem' es relativa al tamaño de fuente raíz del navegador. Si un 
+/* analisis:
+   ¿Por qué rem respeta la configuración de accesibilidad del navegador?
+   porque es relativa al tamaño de fuente del navegador. Si un 
    usuario cambia la fuente predeterminada de su navegador por problemas de vista, 
-   los elementos con 'rem' se escalan proporcionalmente automáticamente[cite: 18].
+   los elementos con rem se escalan automáticamente.
 */
 
-/* ==========================================================================
-   4. NAVEGACIÓN Y ENCABEZADO
-   Ronda 2 - Selectores aplicados a la navegación[cite: 17]
-   ========================================================================== */
+
 header {
     background-color: var(--color-primario);
     color: white;
@@ -86,7 +71,6 @@ header {
     align-items: center;
 }
 
-/* Selectores descendientes[cite: 17] */
 nav ul {
     list-style: none;
     display: flex;
@@ -101,22 +85,18 @@ nav a {
     font-weight: bold;
 }
 
-/* Pseudo-clase :hover[cite: 17] */
 nav a:hover {
     color: var(--color-acento);
     text-decoration: underline;
 }
 
 /* 
-   ANÁLISIS RONDA 2[cite: 17]:
-   Especificidad (Clase vs ID)[cite: 17]:
+   analisis::
    Los selectores de ID (1,0,0) tienen mayor especificidad que las clases (0,1,0). Usar 
-   clases evita el "bloqueo de especificidad", permitiendo reutilizar estilos y 
-   sobrescribirlos fácilmente sin recurrir a !important[cite: 17].
+   clases evita el bloqueo de especificidad, permitiendo reutilizar estilos y 
+   sobrescribirlos fácilmente.
 */
 
-/*
-   5. COMPONENTES Y TARJETAS DE PRODUCTO */
 .tarjetas-productos {
     display: grid;
     grid-template-columns: repeat(var(--columnas-catalogo), 1fr);
@@ -178,9 +158,6 @@ article img {
     text-decoration: underline;
 }
 
-/* 
-   6. UTILIDADES Y BOTONES
-    */
 .boton-agregar {
     display: inline-block;
     margin-top: calc(var(--espaciado-base) * 2);
@@ -198,9 +175,9 @@ article img {
 }
 
 /* 
-   SEMILLA DEL CATÁLOGO DE COMPONENTES CONSTRUIDOS HOY[cite: 18]:
-   1. Encabezado principal y navegación flexbox (`header`, `nav ul`).
-   2. Grilla de catálogo responsiva con variables CSS (`.tarjetas-productos`).
-   3. Tarjeta de producto horizontal (`article`, `.tarjetas-productos-info`).
-   4. Etiqueta destacada de categoría (`.etiqueta-categoria`).
-   5. Botón de acción con estados hover (`.boton-agregar`) */
+   semilla de catalogo de componentes:
+   1. Encabezado principal y navegación (header, nav ul)
+   2. catálogo con variables CSS (.tarjetas-productos)
+   3. Tarjeta de producto horizontal (article, .tarjetas-productos-info)
+   4. Etiqueta  de categoría (.etiqueta-categoria)
+   5. Botón de agregar productos (.boton-agregar) */
